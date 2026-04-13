@@ -26,6 +26,12 @@ pipeline {
                 bat 'set CI=true&& npm test -- --watchAll=false --passWithNoTests'
             }
         }
+
+        stage('Build Docker Image') {
+            steps {
+                bat 'docker build -t final-project-react .'
+            }
+        }
     }
 
     post {
